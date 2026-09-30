@@ -1,0 +1,10 @@
+# 换行符策略
+#
+# 这些脚本要部署到 Linux 路由器（BusyBox ash）和 WSL 里跑。
+# Windows 上 core.autocrlf=true 时 checkout 会把 LF 换成 CRLF，
+# 而 `#!/bin/sh\r` 会让脚本直接失效（bad interpreter / 各种莫名的 "not found"）。
+# 因此 shell 脚本一律钉死 LF。
+
+*.sh    text eol=lf
+*.ps1   text eol=crlf
+*.cmd   text eol=crlf
